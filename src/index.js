@@ -17,3 +17,15 @@ const manageContacts = async () => {
 };
 
 manageContacts();
+const fs = require('fs');
+const path = require('path');
+const PATH_DB = path.resolve(__dirname, '../db/db.json');
+
+fs.readFile(PATH_DB, 'utf8', (err, data) => {
+    if (err) {
+        console.error('Error reading file:', err);
+        return;
+    }
+    const contacts = JSON.parse(data);
+    console.log(contacts);
+});
