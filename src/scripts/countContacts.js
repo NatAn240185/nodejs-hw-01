@@ -1,4 +1,4 @@
-const readContacts = require('../utils/readContacts');
+import { readContacts } from '../utils/readContacts.js';
 
 /**
  * Counts the number of contacts in the db.json file and logs the result.

@@ -1,5 +1,5 @@
-const fs = require('fs');
-const PATH_DB = require('../constants/contacts').PATH_DB;
+import { PATH_DB } from '../constants/contacts.js';
+import fs from 'node:fs/promises';
 
 const writeContacts = (contacts) => {
   fs.writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));

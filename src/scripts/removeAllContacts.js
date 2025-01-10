@@ -1,4 +1,4 @@
-const writeContacts = require('../utils/writeContacts');
+import { writeContacts } from '../utils/writeContacts.js';
 
 const removeAllContacts = () => {
   writeContacts([]);

@@ -1,5 +1,5 @@
-const readContacts = require('../utils/readContacts');
-const writeContacts = require('../utils/writeContacts');
+import { readContacts } from '../utils/readContacts.js';
+import { writeContacts } from '../utils/writeContacts.js';
 
 const removeLastContact = () => {
   const contacts = readContacts();
