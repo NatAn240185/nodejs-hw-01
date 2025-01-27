@@ -1,4 +1,4 @@
-import { PATH_DB } from '../constants/contacts.js';
+import { PATH_DB } from '../constants/contacts';
 import fs from 'node:fs/promises';
 
 const writeContacts = (contacts) => {

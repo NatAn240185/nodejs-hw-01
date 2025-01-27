@@ -1,9 +1,10 @@
-const fs = require('fs');
-const PATH_DB = require('../constants/contacts').PATH_DB;
+import fs from 'fs';
+import path from 'path';
 
-const readContacts = () => {
+// Шлях до бази даних контактів
+const PATH_DB = path.resolve('contacts.json');
+
+export const readContacts = () => {
   const data = fs.readFileSync(PATH_DB, 'utf-8');
   return JSON.parse(data);
 };
-
-module.exports = readContacts;
