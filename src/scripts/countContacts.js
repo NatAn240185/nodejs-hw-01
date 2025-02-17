@@ -1,23 +1,13 @@
-import { readContacts } from '../utils/readContacts.js';
+import { PATH_DB } from "../constants/contacts.js";
+import fs from "node:fs/promises";
 
-/**
- * Counts the number of contacts in the db.json file and logs the result.
- * @returns {Promise<void>}
- */
-const countContacts = async () => {
-    try {
-        // Read contacts from the file
-        const contacts = await readContacts();
-
-        // Count the number of contacts
-        const count = contacts.length;
-
-        // Log the count to the console
-        console.log(`Total number of contacts: ${count}`);
+export const countContacts = async () => {
+        try {
+        let contacts = JSON.parse(await fs.readFile(PATH_DB, 'utf8'));
+        return contacts.length;
     } catch (error) {
-        console.error(`Error counting contacts: ${error.message}`);
+        console.log('An error occurred:', error);
     }
 };
 
-// Execute the function
-countContacts();
+console.log(await countContacts());

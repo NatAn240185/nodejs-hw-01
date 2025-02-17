@@ -1,9 +1,11 @@
 import { PATH_DB } from '../constants/contacts';
 import fs from 'node:fs/promises';
 
-const writeContacts = (contacts) => {
-  fs.writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));
+export const writeContacts = async (updatedContacts) => {
+  try {
+    await fs.writeFile(PATH_DB, JSON.stringify(updatedContacts, undefined, 2));  
+  } catch (err) {
+      console.error('Помилка запису у файл:', err);
+  }
 };
-
-module.exports = writeContacts;
 
